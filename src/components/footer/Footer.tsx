@@ -2,7 +2,10 @@ import './Footer.scss'
 
 const Footer = () => {
   return (
-    <div>Footer</div>
+    <div className='footer'>
+      <span>naruadmin</span>
+      <span>© React Admin Dashboard</span>
+    </div>
   )
 }
 
