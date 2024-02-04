@@ -1,6 +1,7 @@
 import { DataGrid, GridColDef, GridToolbar } from '@mui/x-data-grid';
 import './DataTable.scss';
 import { Link } from 'react-router-dom';
+// import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 type Props = {
   columns: GridColDef[],
@@ -23,7 +24,7 @@ const DataTable = (props: Props) => {
     renderCell: (params) => {
       return(
         <div className="action">
-          <Link to={`${props.slug}/${params.row.id}`}>
+          <Link to={`/${props.slug}/${params.row.id}`}>
               <img src="/view.svg" alt="view icon" />
           </Link>
           <div className="delete" onClick={() => handleDelete(params.row.id)}>
@@ -51,7 +52,7 @@ const DataTable = (props: Props) => {
             toolbar:{
                 showQuickFilter: true,
                 quickFilterProps: { debounceMs: 500 },
-            }
+            },
         }}
         pageSizeOptions={[5]}
         checkboxSelection

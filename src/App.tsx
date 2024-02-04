@@ -7,10 +7,19 @@ import Footer from "./components/footer/Footer";
 import Menu from "./components/menu/Menu";
 import Login from "./pages/login/Login";
 import './styles/global.scss';
+import User from "./pages/userCom/User";
+import Product from "./pages/productCom/Product";
+import {
+  QueryClient,
+  QueryClientProvider,
+} from "@tanstack/react-query";
+
+
+const queryClient = new QueryClient();
 
 function App() {
   const Layout = () => {
-    return(
+    return (
       <div className="main">
         <Navbar />
         <div className="container">
@@ -18,12 +27,14 @@ function App() {
             <Menu />
           </div>
           <div className="contentContainer">
-            <Outlet />
+            <QueryClientProvider client={queryClient}>
+              <Outlet />
+            </QueryClientProvider>
           </div>
         </div>
         <Footer />
       </div>
-    )
+    );
   }
 
   const router = createBrowserRouter([
@@ -44,6 +55,14 @@ function App() {
         {
           path: "/products",
           element: <Products />
+        },
+        {
+          path: "/users/:id",
+          element: <User />
+        },
+        {
+          path: "/products/:id",
+          element: <Product />
         },
       ]
     },
