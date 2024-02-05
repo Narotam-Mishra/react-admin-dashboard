@@ -28,6 +28,16 @@
                 h1{
                     font-weight: 500;
                 }
+
+                button{
+                    padding: 7px;
+                    border-radius: 10px;
+                    background: rgb(17, 181, 246);
+                }
+
+                button:hover{
+                    background-color: rgb(249, 10, 50);
+                }
             }
             .details{
                 font-size: 18px;
